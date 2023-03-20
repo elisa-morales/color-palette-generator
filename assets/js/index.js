@@ -3,7 +3,7 @@ const seedColor = document.getElementById("seed-color")
 const colorSchemeMode = document.getElementById("color-scheme-mode")
 const colorScheme = document.getElementById("color-scheme")
 const colorHex = document.getElementById("color-hex")
-const loader = document.etElementById("loading")
+const loader = document.getElementById("loading")
 
 document.getElementById("get-colors-btn").addEventListener("click", render)
 
