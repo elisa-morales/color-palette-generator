@@ -3,6 +3,7 @@ const seedColor = document.getElementById("seed-color")
 const colorSchemeMode = document.getElementById("color-scheme-mode")
 const colorScheme = document.getElementById("color-scheme")
 const colorHex = document.getElementById("color-hex")
+const loader = document.querySelector("#loading")
 
 document.getElementById("get-colors-btn").addEventListener("click", render)
 
@@ -14,9 +15,12 @@ function getRandomColor() {
 }
 
 function getColorScheme() {
+  loader.classList.add("display")
+
   fetch(`${baseUrl}?hex=${seedColor.value.slice(1)}&mode=${colorSchemeMode.value}`)
     .then((res) => res.json())
     .then((data) => {
+      loader.classList.remove("display")
       for (let i = 0; i < 5; i++) {
         let color = data.colors[i].hex.value
         colorScheme.innerHTML += `
